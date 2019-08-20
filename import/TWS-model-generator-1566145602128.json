@@ -1,1 +1,0 @@
-{"namespace":"Infrastructure.Core.Models.MyModela","modelClassName":"MyModela","customDbEntityClassName":"VW_TWS_MY_MODELA","properties":[{"id":0,"propertyName":"Aaa","propertyType":"string","displayName":"A","dbFieldName":"BBBBBB"},{"id":1,"propertyName":"Bbbbb","propertyType":"DateTime?","displayName":"A","dbFieldName":"BBB"}],"created":"Sun, 18 Aug 2019 16:26:42 GMT"}
