@@ -1,20 +1,19 @@
+var Entry = require("./models/Entry")
 var Layout = require("./views/Layout")
 var PropertyForm = require("./components/PropertyForm")
 
 m.route(document.body, "/", {
   "/": {
-    render: function (vnode) {
+    render: vnode => {
       return m(Layout, m(PropertyForm, vnode.attrs))
     }
-  },
-  // "/list": {
-  //   render: function () {
-  //     return m(Layout, m(UserList))
-  //   }
-  // },
-  // "/edit/:id": {
-  //   render: function (vnode) {
-  //     return m(Layout, m(UserForm, vnode.attrs))
-  //   }
-  // },
+  }
 })
+
+dragula([document.querySelector(".property-rows")], {
+    revertOnSpill: true,
+    mirrorContainer: document.querySelector(".property-rows")
+  })
+  .on("drop", function (el, target, source, siblings) {
+    Entry.syncWithDOM()
+  });

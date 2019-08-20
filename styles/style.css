@@ -142,40 +142,46 @@ h3 {
     /* text-transform: uppercase; */
 }
 
-.property-rows form {
+form.property-row,
+form.property-row.gu-mirror {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
     align-items: start;
-    margin: 0 -1rem 1rem;
+    margin: 0 -1rem 1rem !important;
     padding: 1rem;
     position: relative;
     background: white;
     border-radius: 2px;
     box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.12);
+    transform-origin: top;
 }
 
-.property-rows form .block:nth-child(1) {
+form.gu-mirror {
+    padding-right: 0 !important;
+}
+
+form.property-row .block:nth-child(1) {
     grid-column: span 2;
 }
 
-.property-rows form .block:nth-child(1) input {
+form.property-row .block:nth-child(1) input {
     font-size: 100% !important;
     padding-top: 0.125rem;
 }
 
-.property-rows form .block:nth-child(1)~.block input,
-.property-rows form .block:nth-child(1)~.block select {
+form.property-row .block:nth-child(1)~.block input,
+form.property-row .block:nth-child(1)~.block select {
     font-size: 12px !important;
     padding-top: 0.33rem;
     padding-bottom: 0.33rem;
 }
 
-.property-rows form .block:nth-child(2) {
+form.property-row .block:nth-child(2) {
     grid-column-start: 1;
 }
 
-.property-rows form button {
+form.property-row button {
     grid-row-start: 1;
     grid-column-start: 3;
 }
@@ -312,4 +318,41 @@ code:empty::after {
 
 .btnCopy[disabled] {
     display: none;
+}
+
+.anim-scale-in-top {
+    animation: scale-in-top 0.15s;
+}
+
+.anim-move-out-left {
+    animation: move-out-left 0.3s;
+}
+
+form.property-row:first-child,
+form.gu-mirror {
+    animation-duration: 0s !important;
+}
+
+@keyframes scale-in-top {
+    from {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes move-out-left {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
 }

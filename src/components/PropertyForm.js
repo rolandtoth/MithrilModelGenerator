@@ -10,23 +10,26 @@ module.exports = {
         var entry = Entry.get(id);
 
         entry.propertyName = children[0].state.value;
-        entry.propertyType =
-            children[1].state.value || PropertyType.propertyTypes[0];
+        entry.propertyType = children[1].state.value || PropertyType.propertyTypes[0];
         entry.displayName = children[2].state.value;
         entry.dbFieldName = children[3].state.value;
+    },
+    onbeforeremove: vnode => {
+        vnode.dom.classList.add("anim-move-out-left")
+        return new Promise(resolve => vnode.dom.addEventListener("animationend", resolve));
     },
     view: vnode => {
         var entry = vnode.attrs.entry;
 
         return m(
-            "form",
-            {
+            "form.property-row.anim-scale-in-top", {
+                "data-group-id": entry.id,
                 "data-duplicate": (() => {
                     return (
                         Entry.all().filter(
                             m =>
-                                m.propertyName.trim() !== "" &&
-                                m.propertyName === entry.propertyName
+                            m.propertyName.trim() !== "" &&
+                            m.propertyName === entry.propertyName
                         ).length > 1
                     );
                 })(),

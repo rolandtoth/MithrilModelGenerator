@@ -78,6 +78,21 @@ module.exports = {
 
     download(entries, filename + ".json", 'text/plain');
   },
+  syncWithDOM: () => {
+    var list = [],
+      rows = document.querySelectorAll(".property-rows form:not(.gu-mirror)")
+
+    if (!rows.length) return false
+
+    rows.forEach(row => {
+      var entry = module.exports.get(row.getAttribute("data-group-id"))
+
+      if (entry) list.push(entry)
+    })
+
+    props = list
+    m.redraw()
+  },
   get: id => {
     return props.find(item => {
       return item.id == id
