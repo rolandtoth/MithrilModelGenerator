@@ -1,0 +1,315 @@
+.container {
+    display: grid;
+    grid-template-columns: 32rem repeat(2, calc((100vw - 32rem) / 2));
+    grid-template-rows: fit-content(0) fit-content(5rem) auto;
+    place-content: stretch stretch;
+}
+
+.body {
+    grid-area: 2 / 1 / 4 / 4;
+}
+
+.body-3 {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.body-2 {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.body-1 {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.head-wrap {
+    grid-area: 1 / 1 / 2 / 8;
+}
+
+.head-3 {
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+.head-2 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.head-1 {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+header {
+    grid-area: 1 / 1 / 2 / 4;
+}
+
+.masthead {
+    grid-area: 1 / 1 / 3 / 4;
+}
+
+/* end of https: //css-grid-layout-generator.pw/ output */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: normal 15px "Open Sans", "Segoe UI", sans-serif;
+    background: #f2f2f2;
+}
+
+:root {
+    --color-default: #333;
+    --link-color: #016A9C;
+    --link-hover-color: rgb(0, 139, 204);
+}
+
+*:focus {
+    outline: none;
+}
+
+.property-rows {
+    grid-area: 3 / 1 / 3 / 1;
+    align-self: start;
+}
+
+.head-1,
+.head-2,
+.head-3 {
+    background: linear-gradient(225deg, transparent, white);
+}
+
+header {
+    background: white;
+    border: none;
+}
+
+.header-controls {
+    float: right;
+    white-space: nowrap;
+    margin-top: 0.33rem;
+    margin-right: -1rem;
+}
+
+.header-controls>* {
+    margin-left: 0.25rem;
+    display: inline-block;
+}
+
+.header-controls button {
+    background: transparent;
+    color: var(--color-default);
+}
+
+.header-controls button:not([disabled]):hover {
+    background: transparent;
+    text-decoration: underline;
+    color: var(--link-color) !important;
+}
+
+.header-controls button[disabled] {
+    opacity: 0.33;
+    background: transparent;
+    cursor: default;
+}
+
+h1 {
+    margin: 0.5rem 0 0;
+    font-weight: 400;
+}
+
+.body-2,
+.body-3 {
+    background: #293134f2;
+    position: relative;
+}
+
+.body-3 {
+    background: #293134;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.container>* {
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+h3 {
+    margin: 0;
+    font-weight: 400;
+    /* text-transform: uppercase; */
+}
+
+.property-rows form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    align-items: start;
+    margin: 0 -1rem 1rem;
+    padding: 1rem;
+    position: relative;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.property-rows form .block:nth-child(1) {
+    grid-column: span 2;
+}
+
+.property-rows form .block:nth-child(1) input {
+    font-size: 100% !important;
+    padding-top: 0.125rem;
+}
+
+.property-rows form .block:nth-child(1)~.block input,
+.property-rows form .block:nth-child(1)~.block select {
+    font-size: 12px !important;
+    padding-top: 0.33rem;
+    padding-bottom: 0.33rem;
+}
+
+.property-rows form .block:nth-child(2) {
+    grid-column-start: 1;
+}
+
+.property-rows form button {
+    grid-row-start: 1;
+    grid-column-start: 3;
+}
+
+.btnRemove {
+    background: transparent;
+    color: var(--color-default);
+    border: none;
+    font-size: 125%;
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    cursor: pointer;
+}
+
+.btnRemove:hover {
+    background: transparent;
+    color: var(--link-hover-color);
+}
+
+input,
+select {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+}
+
+input:hover,
+input:focus,
+select:hover,
+select:focus {
+    border-bottom-color: var(--link-color) !important;
+}
+
+.property-rows input,
+.property-rows select {
+    border-bottom-color: #ccc;
+}
+
+form[data-duplicate] .block:first-child::after {
+    content: "Duplicate property name";
+    display: block;
+    font-size: 11px;
+    color: crimson;
+    margin-top: 1px;
+    position: absolute;
+}
+
+form[data-duplicate] .block:first-child input {
+    color: crimson;
+    border-bottom-color: crimson !important;
+}
+
+.language-csharp {
+    font-size: 15px !important;
+}
+
+button {
+    background: var(--link-color);
+    border: none;
+    border-radius: 2px;
+    color: white;
+    display: inline-block;
+    margin: 0;
+    line-height: 1;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--link-hover-color);
+}
+
+.btnAdd {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    padding: 0.5rem !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: transparent !important;
+    margin: -1rem -2rem !important;
+    padding: 1rem 2rem;
+    border: none;
+}
+
+code {
+    padding: 0;
+    white-space: pre-wrap !important;
+}
+
+code::selection,
+code *::selection {
+    background: rgba(255, 255, 255, 0.16) !important;
+}
+
+code:empty::after {
+    content: "Add properties to show output";
+    opacity: 0.12;
+    font-family: sans-serif;
+    display: block;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.btnCopy {
+    border: none;
+    background: none;
+    color: white;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    opacity: 0.33;
+}
+
+.btnCopy:hover {
+    opacity: 1;
+    background: transparent !important;
+}
+
+.btnCopy[disabled] {
+    display: none;
+}
