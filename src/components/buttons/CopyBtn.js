@@ -3,7 +3,7 @@ var Utils = require("../../Utils")
 
 module.exports = {
     view: vnode => {
-        return m("button.btnCopy.small", {
+        return m("button.btnCopy", {
             disabled: Entry.isEmpty(),
             onclick: e => {
                 e.preventDefault()

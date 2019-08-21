@@ -3,11 +3,11 @@ var Entry = require("../../models/Entry")
 module.exports = {
     view: () => {
         return m(".import-wrap", [
-            m("button.bntImport.small", {
+            m("button.bntImport", {
                 onclick: () => {
                     document.getElementById("btnImportFileSelect").click()
                 }
-            }, "Import"),
+            }, "Import JSON"),
             m("input[type=file]#btnImportFileSelect.hidden", {
                 accept: ".json,application/json",
                 value: null,

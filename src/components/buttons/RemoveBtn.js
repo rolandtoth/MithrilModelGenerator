@@ -5,6 +5,7 @@ module.exports = {
         var id = vnode.attrs.id
 
         return m("button.btnRemove", {
+	        title: "Remove",
             onclick: e => {
                 e.preventDefault()
                 Entry.removeAt(id)

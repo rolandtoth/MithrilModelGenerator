@@ -4,6 +4,7 @@ var PropertyType = require("./inputs/PropertyType");
 var DisplayName = require("./inputs/DisplayName");
 var DbFieldName = require("./inputs/DbFieldName");
 var RemoveBtn = require("./buttons/RemoveBtn");
+var DragBtn = require("./buttons/DragBtn");
 
 module.exports = {
     setValues: (children, id) => {
@@ -54,9 +55,7 @@ module.exports = {
                 m(RemoveBtn, {
                     id: entry.id
                 }),
-                m(".drag-handle", {
-	                "title": "drag to reorder"
-	              	}, m.trust("&#9776;"))
+                m(DragBtn)
             ]
         );
     }

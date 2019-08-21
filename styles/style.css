@@ -87,7 +87,6 @@ header {
     float: right;
     white-space: nowrap;
     margin-top: 0.33rem;
-    margin-right: -1rem;
 }
 
 .header-controls>* {
@@ -114,7 +113,8 @@ header {
 
 h1 {
     margin: 0.5rem 0 0;
-    font-weight: 400;
+    font-weight: 300;
+    letter-spacing: 0.5px;
 }
 
 .body-2,
@@ -138,8 +138,7 @@ h1 {
 
 h3 {
     margin: 0;
-    font-weight: 400;
-    /* text-transform: uppercase; */
+    font-weight: 500;
 }
 
 form.property-row {
@@ -174,18 +173,17 @@ form.property-row {
 }
 
 .drag-handle {
-    position: absolute;
+position: absolute;
     right: 3rem;
     cursor: grab;
-    font-size: 1.2rem;
-    top: 0.14rem;
-    padding: 0.25rem;
-    opacity: 0.33;
+    font-size: 1rem;
+    top: 0.4rem;
+    padding: 0.25rem 0.5rem;
     transform: scaleX(1.2);
 }
 
 .drag-handle:hover {
-    opacity: 0.9;
+    color: var(--link-color);
 }
 
 .drag-handle:active {
@@ -223,8 +221,8 @@ form.property-row button {
     border: none;
     font-size: 125%;
     position: absolute;
-    top: -1rem;
-    right: 0;
+    top: -0.84rem;
+    right: 0.25rem;
     cursor: pointer;
 }
 
@@ -236,7 +234,7 @@ form.property-row button {
 input,
 select {
     border: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ccc;
     background: transparent;
     box-sizing: border-box;
     display: block;
@@ -246,8 +244,11 @@ select {
 }
 
 input:hover,
+select:hover {
+    border-bottom-color: #aaa !important;
+}
+
 input:focus,
-select:hover,
 select:focus {
     border-bottom-color: var(--link-color) !important;
 }
@@ -319,7 +320,7 @@ code *::selection {
 
 code:empty::after {
     content: "Add properties to show output";
-    opacity: 0.12;
+    opacity: 0.25;
     font-family: sans-serif;
     display: block;
     font-style: italic;
