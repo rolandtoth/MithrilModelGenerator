@@ -7,7 +7,7 @@ module.exports = {
                 onclick: () => {
                     document.getElementById("btnImportFileSelect").click()
                 }
-            }, "Import JSON"),
+            }, "Import"),
             m("input[type=file]#btnImportFileSelect.hidden", {
                 accept: ".json,application/json",
                 value: null,
