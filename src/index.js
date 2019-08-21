@@ -12,8 +12,17 @@ m.route(document.body, "/", {
 
 dragula([document.querySelector(".property-rows")], {
     revertOnSpill: true,
-    mirrorContainer: document.querySelector(".property-rows")
+    mirrorContainer: document.querySelector(".property-rows"),
+    moves: (el, container, handle) => {
+      return handle.classList.contains("drag-handle")
+    }
   })
-  .on("drop", function (el, target, source, siblings) {
+  .on("shadow", (el, container, source) => {
+    container.classList.add("no-anim");
+  })
+  .on("drop", (el, target, source, siblings) => {
     Entry.syncWithDOM()
+    setTimeout(() => {
+        document.querySelector(".property-rows").classList.remove("no-anim")
+    }, 500)
   });

@@ -23,6 +23,7 @@ module.exports = {
 
         return m(
             "form.property-row.anim-scale-in-top", {
+	            "autocomplete": "off",
                 "data-group-id": entry.id,
                 "data-duplicate": (() => {
                     return (
@@ -52,7 +53,10 @@ module.exports = {
                 }),
                 m(RemoveBtn, {
                     id: entry.id
-                })
+                }),
+                m(".drag-handle", {
+	                "title": "drag to reorder"
+	              	}, m.trust("&#9776;"))
             ]
         );
     }

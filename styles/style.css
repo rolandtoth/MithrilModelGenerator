@@ -142,8 +142,7 @@ h3 {
     /* text-transform: uppercase; */
 }
 
-form.property-row,
-form.property-row.gu-mirror {
+form.property-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
@@ -157,8 +156,40 @@ form.property-row.gu-mirror {
     transform-origin: top;
 }
 
-form.gu-mirror {
-    padding-right: 0 !important;
+.property-row.gu-mirror {
+    width: 28rem !important;
+    height: 4.5rem !important;
+    padding-right: 1rem !important;
+    margin-left: 0 !important;
+}
+
+.property-rows.gu-unselectable .property-row,
+.property-rows[style],
+.property-row.gu-transit {
+    animation-duration: 0s !important;
+}
+
+.no-anim .property-row {
+	animation-duration: 0s !important;
+}
+
+.drag-handle {
+    position: absolute;
+    right: 3rem;
+    cursor: grab;
+    font-size: 1.2rem;
+    top: 0.14rem;
+    padding: 0.25rem;
+    opacity: 0.33;
+    transform: scaleX(1.2);
+}
+
+.drag-handle:hover {
+    opacity: 0.9;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
 }
 
 form.property-row .block:nth-child(1) {
