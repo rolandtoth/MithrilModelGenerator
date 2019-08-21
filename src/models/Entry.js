@@ -4,6 +4,7 @@ var Namespace = require("../components/inputs/Namespace")
 var CustomDbEntityClassName = require("../components/inputs/CustomDbEntityClassName")
 
 var props = []
+var undeleteList = []
 var idCounter = 0
 
 module.exports = {
@@ -85,9 +86,9 @@ module.exports = {
     if (!rows.length) return false
 
     rows.forEach(row => {
-      var entry = module.exports.get(row.getAttribute("data-group-id"))
+      var item = module.exports.get(row.getAttribute("data-group-id"))
 
-      if (entry) list.push(entry)
+      if (item) list.push(item)
     })
 
     props = list
@@ -106,6 +107,12 @@ module.exports = {
       return item.id == id
     })
 
+    delete item.id
+
+	if((item.propertyName || "").trim() !== "") {
+    	undeleteList.push(item)
+	}
+
     props.splice(props.indexOf(item), 1)
 
     if (props.length === 0) {
@@ -114,6 +121,16 @@ module.exports = {
   },
   removeAll: () => {
     props = []
+  },
+  undelete: () => {
+	  if(!undeleteList.length) return
+
+	  var lastItem = undeleteList.splice(-1)[0]
+
+	  module.exports.add(lastItem)
+  },
+  undeleteCount: () => {
+	  return undeleteList.length
   },
   vm: model => {
     return model || {

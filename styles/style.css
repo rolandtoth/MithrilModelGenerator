@@ -70,6 +70,8 @@ body {
 .property-rows {
     grid-area: 3 / 1 / 3 / 1;
     align-self: start;
+    max-height: calc(100vh - 12.5rem);
+    overflow: overlay;
 }
 
 .head-1,
@@ -86,7 +88,7 @@ header {
 .header-controls {
     float: right;
     white-space: nowrap;
-    margin-top: 0.33rem;
+    margin-top: 0;
 }
 
 .header-controls>* {
@@ -112,7 +114,7 @@ header {
 }
 
 h1 {
-    margin: 0.5rem 0 0;
+    margin: 0;
     font-weight: 300;
     letter-spacing: 0.5px;
 }
@@ -146,7 +148,7 @@ form.property-row {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
     align-items: start;
-    margin: 0 -1rem 1rem !important;
+    margin: 0 -1rem 0.75rem !important;
     padding: 1rem;
     position: relative;
     background: white;
@@ -186,8 +188,9 @@ position: absolute;
     color: var(--link-color);
 }
 
-.drag-handle:active {
-    cursor: grabbing;
+.drag-handle:active,
+form.property-row.gu-mirror .drag-handle {
+    cursor: grabbing !important;
 }
 
 form.property-row .block:nth-child(1) {
@@ -353,16 +356,11 @@ code:empty::after {
 }
 
 .anim-scale-in-top {
-    animation: scale-in-top 0.15s;
+    animation: scale-in-top 0.12s;
 }
 
 .anim-move-out-left {
-    animation: move-out-left 0.3s;
-}
-
-form.property-row:first-child,
-form.gu-mirror {
-    animation-duration: 0s !important;
+    animation: move-out-left 0.2s;
 }
 
 @keyframes scale-in-top {
@@ -384,7 +382,31 @@ form.gu-mirror {
     }
 
     to {
-        transform: translateX(-120%);
+        transform: translateX(-50%);
         opacity: 0;
     }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    margin-right: 4px;
+    transform: translateX(-10px);
+    display: block;
+    border-left: 2px solid var(--link-color);
+}
+
+::-webkit-input-placeholder {
+  color: #ccc;
+}
+::-moz-placeholder {
+  color: #ccc;
 }

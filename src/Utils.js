@@ -6,13 +6,13 @@ module.exports = {
       return s.charAt(0).toUpperCase() + s.slice(1)
     }).join(separator)
   },
-  removeWhiteSpace: (str) => {
+  removeWhiteSpace: (str = "") => {
     return str.replace(" ", "")
   },
-  removeDoubleWhiteSpace: (str) => {
+  removeDoubleWhiteSpace: (str = "") => {
     return str.replace(/  +/g, " ")
   },
-  copyToClipboard: (el) => {
+  copyToClipboard: el => {
     var range, selection;
 
     if (document.body.createTextRange) {

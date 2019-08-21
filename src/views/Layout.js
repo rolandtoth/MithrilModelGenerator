@@ -9,6 +9,7 @@ var DBEntityOutput = require("../components/DBEntityOutput")
 var CopyBtn = require("../components/buttons/CopyBtn")
 var ImportBtn = require("../components/buttons/ImportBtn")
 var ExportBtn = require("../components/buttons/ExportBtn")
+var UndeleteBtn = require("../components/buttons/UndeleteBtn")
 
 module.exports = {
     oninit: () => {
@@ -17,7 +18,7 @@ module.exports = {
     view: () => {
         return m(".container", [
             m("header", m(".header-controls", [
-                m(ImportBtn), m(ExportBtn)
+                m(UndeleteBtn), m(ImportBtn), m(ExportBtn)
             ]), m("h1", "TWS Model Generator")),
             m(".head-1", m(AddBtn), m("h3", "Source data"), m(Namespace)),
             m(".head-2", m("h3", "Model output"), m(ModelClassName)),
@@ -29,7 +30,11 @@ module.exports = {
             m(".body-3", m(DBEntityOutput), m(CopyBtn, {
                 target: document.getElementById("ModelOutputDBEntity")
             })),
-            m(".property-rows", Entry.all().map(entry => {
+            m(".property-rows", 
+            	{
+					"data-count": Entry.all().length,
+	            },
+            	Entry.all().map(entry => {
                 return m(PropertyForm, {
                     key: entry.id, // to delete the proper row!
                     entry: entry

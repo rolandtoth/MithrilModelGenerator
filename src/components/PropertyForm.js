@@ -30,7 +30,7 @@ module.exports = {
                     return (
                         Entry.all().filter(
                             m =>
-                            m.propertyName.trim() !== "" &&
+                            (m.propertyName || "").trim() !== "" &&
                             m.propertyName === entry.propertyName
                         ).length > 1
                     );

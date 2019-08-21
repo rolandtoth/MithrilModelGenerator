@@ -10,19 +10,15 @@ m.route(document.body, "/", {
   }
 })
 
-dragula([document.querySelector(".property-rows")], {
+var propertyRows = document.querySelector(".property-rows")
+
+dragula([propertyRows], {
     revertOnSpill: true,
-    mirrorContainer: document.querySelector(".property-rows"),
+    mirrorContainer: propertyRows,
     moves: (el, container, handle) => {
       return handle.classList.contains("drag-handle")
     }
   })
-  .on("shadow", (el, container, source) => {
-    container.classList.add("no-anim");
-  })
-  .on("drop", (el, target, source, siblings) => {
+  .on("shadow", (el, target, source, siblings) => {
     Entry.syncWithDOM()
-    setTimeout(() => {
-        document.querySelector(".property-rows").classList.remove("no-anim")
-    }, 500)
   });

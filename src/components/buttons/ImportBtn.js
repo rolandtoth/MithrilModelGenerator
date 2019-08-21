@@ -13,6 +13,7 @@ module.exports = {
                 value: null,
                 onchange: e => {
                     Entry.processImport(e)
+                    e.target.value = ""
                 }
             })
         ])

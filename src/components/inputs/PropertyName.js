@@ -1,9 +1,16 @@
 var Entry = require("../../models/Entry")
 var Utils = require("../../Utils")
 
+function sanitizeValue(str) {
+	str = Utils.removeWhiteSpace(str)
+    str = Utils.upperCaseFirst(str)
+
+	return str
+}
+
 module.exports = {
     oninit: vnode => {
-        vnode.state.value = vnode.attrs.value
+        vnode.state.value = sanitizeValue(vnode.attrs.value)
     },
     oncreate: vnode => {
         var input = vnode.dom.querySelector("input")
@@ -14,7 +21,7 @@ module.exports = {
     view: vnode => {
         return m(".block", [
             m("input.input[type=text][name=propertyName][placeholder=Property Name...]", {
-                value: vnode.state.value,
+                value: sanitizeValue(vnode.state.value),
                 onkeydown: e => {
                     if (e.keyCode === 13) { // Enter
                         e.preventDefault()
@@ -25,14 +32,9 @@ module.exports = {
                     }
                 },
                 oninput: e => {
-                    var v = e.target.value
-
-                    v = Utils.removeWhiteSpace(v)
-                    v = Utils.upperCaseFirst(v)
-
-                    vnode.state.value = e.target.value = v
+                    vnode.state.value = e.target.value = sanitizeValue(e.target.value)
                 }
-            }),
-        ]);
+            })
+        ])
     }
 }

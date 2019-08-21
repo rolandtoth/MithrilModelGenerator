@@ -1,21 +1,21 @@
 var Utils = require("../../Utils")
 
+function sanitizeValue(str) {
+	return Utils.removeWhiteSpace(str).toUpperCase()
+}
+
 module.exports = {
     oninit: vnode => {
-        vnode.state.value = vnode.attrs.value
+        vnode.state.value = sanitizeValue(vnode.attrs.value)
     },
     view: vnode => {
         return m(".block", [
             m("input.input[type=text][name=dbFieldName][placeholder=DB Field Name...]", {
-                value: vnode.state.value,
+                value: sanitizeValue(vnode.state.value),
                 oninput: e => {
-                    var v = e.target.value
-
-                    v = Utils.removeWhiteSpace(v).toUpperCase()
-
-                    vnode.state.value = v
+                    vnode.state.value = sanitizeValue(e.target.value)
                 }
-            }),
+            })
         ])
     }
 }
