@@ -92,9 +92,9 @@ namespace Infrastructure.Data.CustomDbEntities
             }
 
             ${cdbInstanceFields.join(`\n${getIndent(3)}`)}
-        }
 
-        return instance;
+            return instance;
+        }
     }
 }`
 
