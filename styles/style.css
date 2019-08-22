@@ -74,7 +74,7 @@ body {
 
 .property-rows,
 pre {
-	max-height: calc(100vh - 12.5rem);
+	max-height: calc(100vh - 12.75rem);
     overflow: overlay;
 }
 
@@ -179,13 +179,12 @@ form.property-row {
 }
 
 .drag-handle {
-position: absolute;
+    position: absolute;
     right: 3rem;
     cursor: grab;
-    font-size: 1rem;
-    top: 0.4rem;
+    top: 0.52rem;
     padding: 0.25rem 0.5rem;
-    transform: scaleX(1.2);
+    transform: scaleX(1.25);
 }
 
 .drag-handle:hover {
@@ -294,17 +293,25 @@ button {
     padding: 0.75rem 1rem;
     text-decoration: none;
     cursor: pointer;
+    text-align: center;
+    transition: all 0.1s;
 }
 
 button:hover {
     background: var(--link-hover-color);
 }
 
-.btnAdd {
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
+button[disabled] {
+    background: transparent;
+    color: var(--color-default);
+    cursor: default;
+}
+
+.head-1 button {
+    float: right;
+    margin: 0 -0.33rem 0 1rem;
     padding: 0.5rem !important;
+    min-width: 2rem;
 }
 
 :not(pre)>code[class*="language-"],

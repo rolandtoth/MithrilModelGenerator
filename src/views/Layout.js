@@ -18,9 +18,9 @@ module.exports = {
     view: () => {
         return m(".container", [
             m("header", m(".header-controls", [
-                m(UndeleteBtn), m(ImportBtn), m(ExportBtn)
+                m(ImportBtn), m(ExportBtn)
             ]), m("h1", "TWS Model Generator")),
-            m(".head-1", m(AddBtn), m("h3", "Source data"), m(Namespace)),
+            m(".head-1", m(AddBtn), m(UndeleteBtn), m("h3", "Source data"), m(Namespace)),
             m(".head-2", m("h3", "Model output"), m(ModelClassName)),
             m(".head-3", m("h3", "Custom DB Entity output"), m(CustomDbEntityClassName)),
             m(".body-1"),

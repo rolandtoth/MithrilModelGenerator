@@ -116,7 +116,10 @@ module.exports = {
     props.splice(props.indexOf(item), 1)
 
     if (props.length === 0) {
-      module.exports.add()
+      setTimeout(() => {
+        module.exports.add()
+        m.redraw()
+      }, 200)
     }
   },
   removeAll: () => {
