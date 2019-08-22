@@ -47,7 +47,7 @@ module.exports = {
 
         var template = `using System;
 using System.ComponentModel;
-using Data.CustomDbEntities;
+using Infrastructure.Data.CustomDbEntities;
 
 namespace ${ns}
 {
