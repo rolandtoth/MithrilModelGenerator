@@ -68,6 +68,10 @@ body {
     outline: none;
 }
 
+input[type=text]::-ms-clear {
+    display: none;
+}
+
 .property-rows {
     grid-area: 3 / 1 / 3 / 1;
     align-self: start;
@@ -142,7 +146,7 @@ h1 {
 
 .body-2,
 .body-3 {
-    background: #293134f2;
+    background: #333B3D;
     position: relative;
 }
 
@@ -351,6 +355,10 @@ pre[class*="language-"] {
     margin: -1rem -2rem !important;
     padding: 1rem 2rem;
     border: none;
+}
+
+pre, code {
+    text-shadow: none !important;
 }
 
 code {
