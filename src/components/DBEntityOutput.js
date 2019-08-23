@@ -2,6 +2,7 @@ var Entry = require("../models/Entry")
 var ModelClassName = require("../components/inputs/ModelClassName")
 var CustomDbEntityClassName = require("../components/inputs/CustomDbEntityClassName")
 var Namespace = require("../components/inputs/Namespace")
+var Utils = require("../Utils")
 
 function getSafeMethod(type) {
     let method = "GetSafeString";
@@ -33,7 +34,7 @@ module.exports = {
         Prism.highlightElement(document.getElementById("ModelOutputDBEntity"))
     },
     view: () => {
-        var entries = Entry.all();
+        var entries = Utils.removeDuplicates(Entry.all(), "propertyName");
 
         var properties = []
         var cdb = []
