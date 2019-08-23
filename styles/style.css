@@ -61,6 +61,7 @@ body {
     --color-default: #333;
     --link-color: #016A9C;
     --link-hover-color: rgb(0, 139, 204);
+    --color-error: #c62828;
 }
 
 *:focus {
@@ -76,6 +77,22 @@ body {
 pre {
 	max-height: calc(100vh - 12.75rem);
     overflow: overlay;
+}
+
+.property-rows[data-collapsed] .property-row .block:first-child ~ .block {
+    display: none;
+}
+
+.property-rows[data-collapsed] .property-row .block:first-child input {
+    border: none;
+    padding: 0.5rem;
+    margin: -0.5rem 0 -0.5rem -0.5rem;
+    background: linear-gradient(45deg, #eee, transparent);
+}
+
+.btnViewToggle.active:not(:hover) {
+    background: #e8e8e8;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.12);
 }
 
 .head-1,
@@ -168,6 +185,10 @@ form.property-row {
     margin-left: 0 !important;
 }
 
+.property-rows[data-collapsed] .property-row.gu-mirror {
+    height: 1rem !important;
+}
+
 .property-rows.gu-unselectable .property-row,
 .property-rows[style],
 .property-row.gu-transit {
@@ -182,7 +203,7 @@ form.property-row {
     position: absolute;
     right: 3rem;
     cursor: grab;
-    top: 0.52rem;
+    top: 0.61rem;
     padding: 0.25rem 0.5rem;
     transform: scaleX(1.25);
 }
@@ -202,7 +223,7 @@ form.property-row .block:nth-child(1) {
 
 form.property-row .block:nth-child(1) input {
     font-size: 100% !important;
-    padding-top: 0.125rem;
+    padding-top: 0;
 }
 
 form.property-row .block:nth-child(1)~.block input,
@@ -227,7 +248,7 @@ form.property-row button {
     border: none;
     font-size: 125%;
     position: absolute;
-    top: -0.84rem;
+    top: -0.7rem;
     right: 0.25rem;
     cursor: pointer;
 }
@@ -268,14 +289,19 @@ form[data-duplicate] .block:first-child::after {
     content: "Duplicate property name";
     display: block;
     font-size: 11px;
-    color: crimson;
+    color: var(--color-error);
     margin-top: 1px;
     position: absolute;
 }
 
+.property-rows[data-collapsed] form[data-duplicate] .block:first-child::after {
+    position: relative;
+    top: 10px;
+}
+
 form[data-duplicate] .block:first-child input {
-    color: crimson;
-    border-bottom-color: crimson !important;
+    color: var(--color-error);
+    border-bottom-color: var(--color-error) !important;
 }
 
 .language-csharp {
@@ -305,6 +331,11 @@ button[disabled] {
     background: transparent;
     color: var(--color-default);
     cursor: default;
+}
+
+.button-transparent:not(:hover) {
+    background: transparent;
+    color: var(--color-default);
 }
 
 .head-1 button {
