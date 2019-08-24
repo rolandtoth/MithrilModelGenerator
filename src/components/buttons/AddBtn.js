@@ -7,6 +7,6 @@ module.exports = {
                 e.preventDefault()
                 Entry.add()
             }
-        }, "Add New Property")
+        }, "Add New")
     }
 }

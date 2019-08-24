@@ -11,6 +11,7 @@ var ImportBtn = require("../components/buttons/ImportBtn")
 var ExportBtn = require("../components/buttons/ExportBtn")
 var UndeleteBtn = require("../components/buttons/UndeleteBtn")
 var ViewToggleBtn = require("../components/buttons/ViewToggleBtn")
+var SortBtn = require("../components/buttons/SortBtn")
 
 module.exports = {
     oninit: () => {
@@ -21,7 +22,7 @@ module.exports = {
             m("header", m(".header-controls", [
                 m(ImportBtn), m(ExportBtn)
             ]), m("h1", "TWS Model Generator")),
-            m(".head-1", m(AddBtn), m(UndeleteBtn), m(ViewToggleBtn), m("h3", "Source data"), m(Namespace)),
+            m(".head-1", m(AddBtn), m(UndeleteBtn), m(ViewToggleBtn), m(SortBtn), m("h3", "Properties"), m(Namespace)),
             m(".head-2", m("h3", "Model output"), m(ModelClassName)),
             m(".head-3", m("h3", "Custom DB Entity output"), m(CustomDbEntityClassName)),
             m(".body-1"),

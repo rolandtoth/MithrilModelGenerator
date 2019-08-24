@@ -94,6 +94,10 @@ module.exports = {
     props = list
     m.redraw()
   },
+  sortByName: () => {
+    props.sort((a, b) => a.propertyName.toLowerCase().localeCompare(b.propertyName.toLowerCase()))
+    m.redraw()
+  },
   get: id => {
     return props.find(item => {
       return item.id == id

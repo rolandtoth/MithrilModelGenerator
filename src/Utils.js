@@ -12,6 +12,12 @@ module.exports = {
   removeDoubleWhiteSpace: (str = "") => {
     return str.replace(/  +/g, " ")
   },
+  removeStartingDigits: (str = "") => {
+    return str.replace(/^\d+/, "")
+  },
+  startsWithDigit: str => {
+    return str && str[0].match(/\d/)
+  },
   copyToClipboard: el => {
     var range, selection;
 
@@ -38,5 +44,10 @@ module.exports = {
     return myArr.filter((obj, pos, arr) => {
         return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos;
     });
-  }
+  },
+  isNumberKey: (e) => {
+    var charCode = (e.which) ? e.which : event.keyCode
+
+    return !(charCode > 31 && (charCode < 48 || charCode > 57))
+}
 }

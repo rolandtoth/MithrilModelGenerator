@@ -2,7 +2,7 @@ var Utils = require("../../Utils")
 
 function sanitizeValue(str) {
 	str = Utils.removeDoubleWhiteSpace(str)
-    str = Utils.upperCaseFirst(str, null)
+    // str = Utils.upperCaseFirst(str, null)
 
 	return str
 }

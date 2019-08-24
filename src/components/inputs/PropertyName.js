@@ -3,7 +3,8 @@ var Utils = require("../../Utils")
 
 function sanitizeValue(str) {
 	str = Utils.removeWhiteSpace(str)
-    str = Utils.upperCaseFirst(str)
+    // str = Utils.upperCaseFirst(str)
+    str = Utils.removeStartingDigits(str)
 
 	return str
 }
@@ -29,10 +30,18 @@ module.exports = {
                         if (vnode.state.value.trim()) {
                             Entry.add()
                         }
+                    } else if (e.keyCode === 32) { // Space
+                        e.preventDefault()
                     }
                 },
                 oninput: e => {
-                    vnode.state.value = e.target.value = sanitizeValue(e.target.value)
+                    var v = e.target.value
+
+                    vnode.state.value = e.target.value = sanitizeValue(v)
+
+                    if (Utils.startsWithDigit(v)) {
+                        e.target.setSelectionRange(0, 0)
+                    }
                 }
             })
         ])

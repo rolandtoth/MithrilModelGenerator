@@ -4,17 +4,17 @@ const CustomDbEntityClassName = require("../components/inputs/CustomDbEntityClas
 const Namespace = require("../components/inputs/Namespace")
 const Utils = require("../Utils")
 
-var entries
-var properties
 var cdb
-var propertiesDBE
-var cdbInstanceFields
-var ns
-var modelClass
 var cdbEntityClass
+var cdbInstanceFields
+var entries
+var modelClass
+var ns
+var properties
+var propertiesDBE
 
-function getIndent(count = 1) {
-    return " ".repeat(count * 4)
+function getIndent(count = 1, tabSize = 4) {
+    return " ".repeat(count * tabSize)
 }
 
 function getSafeMethod(type) {
@@ -56,13 +56,13 @@ module.exports = {
             var displayNameLine = ""
             var propertyLine = ""
         
-            var propertyName = entry.propertyName
+            var propertyName = Utils.upperCaseFirst(entry.propertyName)
         
             if (!propertyName) continue
         
             var propertyType = entry.propertyType
-            var displayName = entry.displayName
-            var dbFieldName = entry.dbFieldName || propertyName && propertyName.toUpperCase()
+            var displayName = Utils.upperCaseFirst(entry.displayName)
+            var dbFieldName = (entry.dbFieldName || propertyName).toUpperCase()
             var safeMethod = getSafeMethod(propertyType)
         
             if (displayName) {
