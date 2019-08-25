@@ -13,9 +13,19 @@ var UndeleteBtn = require("../components/buttons/UndeleteBtn")
 var ViewToggleBtn = require("../components/buttons/ViewToggleBtn")
 var SortBtn = require("../components/buttons/SortBtn")
 
+var localStorageKey = "TWSModelGenerator"
+
 module.exports = {
     oninit: () => {
-        Entry.add()
+        var data = JSON.parse(localStorage.getItem(localStorageKey));
+
+        if (data) {
+            Entry.import(data)
+        } else {
+            Entry.add()
+        }
+
+        window.addEventListener("beforeunload", () => localStorage.setItem(localStorageKey, Entry.export()))
     },
     view: () => {
         return m(".container", [

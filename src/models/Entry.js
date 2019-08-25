@@ -2,6 +2,7 @@ var PropertyType = require("../components/inputs/PropertyType")
 var ModelClassName = require("../components/inputs/ModelClassName")
 var Namespace = require("../components/inputs/Namespace")
 var CustomDbEntityClassName = require("../components/inputs/CustomDbEntityClassName")
+var ViewToggleBtn = require("../components/buttons/ViewToggleBtn")
 
 var props = []
 var undeleteList = []
@@ -29,10 +30,14 @@ module.exports = {
     ModelClassName.set(data.modelClassName)
     CustomDbEntityClassName.set(data.customDbEntityClassName)
 
+    if (data.options) {
+      ViewToggleBtn.setCollapsedState(data.options.collapsed)
+    }
+
     data.properties.forEach(vm => {
       vm.id = idCounter++
       props.push(vm)
-    });
+    })
   },
   processImport: e => {
     let input = e.target;
@@ -59,7 +64,10 @@ module.exports = {
       modelClassName: ModelClassName.get(),
       customDbEntityClassName: CustomDbEntityClassName.get(),
       properties: module.exports.all(),
-      created: new Date().toUTCString()
+      created: new Date().toUTCString(),
+      options: {
+        collapsed: ViewToggleBtn.getCollapsedState()
+      }
     })
   },
   processExport: () => {
