@@ -225,7 +225,7 @@ form.property-row button {
     padding: 0.5rem;
 }
 
-.property-rows .icon {
+.property-rows svg {
     width: 1rem;
     height: auto;
     display: block;
@@ -342,14 +342,9 @@ button[disabled] {
 }
 
 .button-transparent.active,
-.button-transparent:hover {
+.button-transparent:not([disabled]):hover {
     background: transparent;
     color: var(--link-color);
-}
-
-.btnViewToggle.active {
-    filter: invert(1);
-    background: #FE9563;
 }
 
 [class*="head-"] button {
@@ -359,17 +354,23 @@ button[disabled] {
 }
 
 [class*="head-"] button:hover {
-    filter: invert(1);
-    background: #FE9563;
+    background: transparent;
+}
+
+[class*="head-"] button:not([disabled]):hover svg * {
+    color: var(--link-color);
 }
 
 [class*="head-"] button[disabled]:hover {
     background: transparent;
-    filter: none;
 }
 
-[class*="head-"] button:hover .icon {
-    filter: sepia(2) hue-rotate(80deg);
+[class*="head-"] button.active {
+    background: var(--link-color) !important;
+}
+
+[class*="head-"] button.active svg * {
+    color: white !important;
 }
 
 .btnAdd::before {
@@ -421,7 +422,7 @@ code:empty::after {
     text-transform: uppercase;
 }
 
-.icon {
+svg {
     width: 1.08rem;
     height: auto;
     user-select: none;

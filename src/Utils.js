@@ -1,3 +1,5 @@
+var Icons = require("./Icons")
+
 module.exports = {
   upperCaseFirst: (str, separator = " ") => {
     var strArr = str.indexOf(separator) !== -1 ? str.split(separator) : [str]
@@ -19,7 +21,7 @@ module.exports = {
     return str && str[0].match(/\d/)
   },
   getIcon: name => {
-    return `<img src="./icons/${name}.svg" class="icon"/>`
+    return Icons[name]
   },
   copyToClipboard: el => {
     var range, selection;
