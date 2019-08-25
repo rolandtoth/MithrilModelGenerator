@@ -72,7 +72,7 @@ module.exports = {
   },
   processExport: () => {
     var entries = module.exports.export(),
-      filename = "TWS-model-generator-" + (+new Date)
+      filename = "model-generator-" + (+new Date)
 
     function download(content, fileName, contentType) {
       var a = document.createElement("a");
@@ -135,6 +135,7 @@ module.exports = {
     }
   },
   removeAll: () => {
+    undeleteList.push(...props)
     props = []
   },
   undelete: () => {

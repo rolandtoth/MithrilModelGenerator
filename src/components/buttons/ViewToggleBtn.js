@@ -1,3 +1,5 @@
+var Utils = require("../../Utils")
+
 module.exports = {
     collapsed: false,
     getCollapsedState: () => {
@@ -14,6 +16,6 @@ module.exports = {
                 e.preventDefault()
                 this.collapsed = !this.collapsed
             }
-        }, m.trust("&#9636;"))
+        }, m.trust(Utils.getIcon("list")))
     }
 }

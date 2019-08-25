@@ -18,8 +18,13 @@ module.exports = {
   startsWithDigit: str => {
     return str && str[0].match(/\d/)
   },
+  getIcon: name => {
+    return `<img src="./icons/${name}.svg" class="icon"/>`
+  },
   copyToClipboard: el => {
     var range, selection;
+
+    if (!el) return false
 
     if (document.body.createTextRange) {
       range = document.body.createTextRange();

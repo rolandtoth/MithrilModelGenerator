@@ -1,4 +1,5 @@
 var Entry = require("../../models/Entry")
+var Utils = require("../../Utils")
 
 module.exports = {
     view: vnode => {
@@ -9,6 +10,6 @@ module.exports = {
                 e.preventDefault()
                 Entry.undelete()
             },
-        }, m.trust("&#8630;"))
+        }, m.trust(Utils.getIcon("corner-up-left")))
     }
 }

@@ -3,12 +3,13 @@ var Utils = require("../../Utils")
 
 module.exports = {
     view: vnode => {
-        return m("button.btnCopy", {
+        return m("button.btnCopy.button-transparent", {
             disabled: Entry.isEmpty(),
+            title: "Copy",
             onclick: e => {
                 e.preventDefault()
                 Utils.copyToClipboard(vnode.attrs.target)
             }
-        }, "Copy")
+        }, m.trust(Utils.getIcon("clipboard")))
     }
 }

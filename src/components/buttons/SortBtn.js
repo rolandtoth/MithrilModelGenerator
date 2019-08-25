@@ -1,4 +1,5 @@
 var Entry = require("../../models/Entry")
+var Utils = require("../../Utils")
 
 module.exports = {
     view: () => {
@@ -9,6 +10,6 @@ module.exports = {
                 e.preventDefault()
                 Entry.sortByName()
             }
-        }, m.trust("AZ&#8595;"))
+        }, m.trust(Utils.getIcon("bar-chart")))
     }
 }

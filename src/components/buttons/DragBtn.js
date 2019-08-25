@@ -1,7 +1,9 @@
+var Utils = require("../../Utils")
+
 module.exports = {
     view: () => {
-        return m("span.drag-handle", {
+        return m("button.btnDrag.button-transparent", {
 				title: "Drag to reorder"
-			}, m.trust("&#9776;"))
+			}, m.trust(Utils.getIcon("move")))
     }
 }

@@ -3,12 +3,14 @@ var Utils = require("../../Utils")
 
 module.exports = {
     view: () => {
-        return m("button.btnAdd.button-transparent", {
-            title: "Add new property",
+        return m("button.btnRemoveAll.button-transparent", {
+            title: "Remove all",
+            disabled: Entry.isEmpty(),
             onclick: (e) => {
                 e.preventDefault()
+                Entry.removeAll()
                 Entry.add()
             }
-        }, m.trust(Utils.getIcon("plus-circle")))
+        }, m.trust(Utils.getIcon("trash-2")))
     }
 }

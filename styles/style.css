@@ -351,23 +351,23 @@ button[disabled] {
     background: #FE9563;
 }
 
-.head-1 button {
+[class*="head-"] button {
     float: right;
     margin: -0.2rem -0.33rem 0 1rem;
     padding: 0.33rem 0.5rem !important;
 }
 
-.head-1 button:hover {
+[class*="head-"] button:hover {
     filter: invert(1);
     background: #FE9563;
 }
 
-.head-1 button[disabled]:hover {
+[class*="head-"] button[disabled]:hover {
     background: transparent;
     filter: none;
 }
 
-.head-1 button:hover .icon {
+[class*="head-"] button:hover .icon {
     filter: sepia(2) hue-rotate(80deg);
 }
 
@@ -429,31 +429,6 @@ code:empty::after {
 }
 
 .hidden {
-    display: none;
-}
-
-.btnCopy {
-    filter: invert(1);
-    position: absolute;
-    cursor: pointer;
-    padding: 1rem 0.7rem;
-    top: 0;
-    right: 0;
-    z-index: 20;
-    opacity: 0.2;
-}
-
-.btnCopy img {
-    width: 1rem;
-    height: auto;
-}
-
-.btnCopy:hover {
-    opacity: 1;
-    background: transparent !important;
-}
-
-.btnCopy[disabled] {
     display: none;
 }
 

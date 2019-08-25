@@ -16,7 +16,7 @@ dragula([propertyRows], {
     revertOnSpill: true,
     mirrorContainer: propertyRows,
     moves: (el, container, handle) => {
-      return handle.classList.contains("drag-handle")
+      return handle.classList.contains("btnDrag")
     }
   })
   .on("shadow", (el, target, source, siblings) => {
