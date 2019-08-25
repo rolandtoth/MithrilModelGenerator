@@ -55,6 +55,7 @@ header {
 body {
     font: normal 15px "Open Sans", "Segoe UI", sans-serif;
     background: #f2f2f2;
+    overscroll-behavior: contain;
 }
 
 :root {
