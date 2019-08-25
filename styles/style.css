@@ -158,7 +158,7 @@ h1 {
 }
 
 h3 {
-    margin: 0;
+    margin: 0 0 0.5rem;
     font-weight: 500;
 }
 
@@ -197,28 +197,6 @@ form.property-row {
 	animation-duration: 0s !important;
 }
 
-.drag-handle {
-    position: absolute;
-    right: 3rem;
-    cursor: grab;
-    top: 0.61rem;
-    padding: 0.25rem 0.5rem;
-    transform: scaleX(1.25);
-}
-
-.drag-handle:hover {
-    color: var(--link-color);
-}
-
-.drag-handle:active,
-form.property-row.gu-mirror .drag-handle {
-    cursor: grabbing !important;
-}
-
-form.property-row .block:nth-child(1) {
-    grid-column: span 2;
-}
-
 form.property-row .block:nth-child(1) input {
     font-size: 100% !important;
     padding-top: 0;
@@ -240,20 +218,45 @@ form.property-row button {
     grid-column-start: 3;
 }
 
-.btnRemove {
-    background: transparent;
-    color: var(--color-default);
-    border: none;
-    font-size: 125%;
+.property-rows button {
     position: absolute;
-    top: -0.7rem;
-    right: 0.25rem;
+    top: -0.5rem;
+    padding: 0.5rem;
+}
+
+.property-rows .icon {
+    width: 1rem;
+    height: auto;
+    display: block;
+}
+
+.btnRemove {
+    right: 0.7rem;
     cursor: pointer;
 }
 
 .btnRemove:hover {
     background: transparent;
     color: var(--link-hover-color);
+}
+
+.btnDrag {
+    position: absolute;
+    right: 3rem;
+    cursor: grab;
+}
+
+.btnDrag:hover {
+    color: var(--link-color);
+}
+
+.btnDrag:active,
+form.property-row.gu-mirror .btnDrag {
+    cursor: grabbing !important;
+}
+
+form.property-row .block:nth-child(1) {
+    grid-column: span 2;
 }
 
 input,
@@ -343,11 +346,39 @@ button[disabled] {
     color: var(--link-color);
 }
 
+.btnViewToggle.active {
+    filter: invert(1);
+    background: #FE9563;
+}
+
 .head-1 button {
     float: right;
-    margin: -0.07rem -0.33rem 0 1rem;
-    padding: 0.5rem !important;
-    min-width: 2rem;
+    margin: -0.2rem -0.33rem 0 1rem;
+    padding: 0.33rem 0.5rem !important;
+}
+
+.head-1 button:hover {
+    filter: invert(1);
+    background: #FE9563;
+}
+
+.head-1 button[disabled]:hover {
+    background: transparent;
+    filter: none;
+}
+
+.head-1 button:hover .icon {
+    filter: sepia(2) hue-rotate(80deg);
+}
+
+.btnAdd::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 1.6rem;
+    margin: -0.25rem 0 -0.25rem 1.4rem;
+    background: var(--color-default);
+    opacity: 0.33;
 }
 
 :not(pre)>code[class*="language-"],
@@ -389,20 +420,32 @@ code:empty::after {
     text-transform: uppercase;
 }
 
+.icon {
+    width: 1.08rem;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+    display: block;
+}
+
 .hidden {
     display: none;
 }
 
 .btnCopy {
-    border: none;
-    background: none;
-    color: white;
+    filter: invert(1);
     position: absolute;
     cursor: pointer;
+    padding: 1rem 0.7rem;
     top: 0;
     right: 0;
     z-index: 20;
-    opacity: 0.33;
+    opacity: 0.2;
+}
+
+.btnCopy img {
+    width: 1rem;
+    height: auto;
 }
 
 .btnCopy:hover {
