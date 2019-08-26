@@ -30,7 +30,7 @@ module.exports = {
     ModelClassName.set(data.modelClassName)
     CustomDbEntityClassName.set(data.customDbEntityClassName)
 
-    if (data.options) {
+    if (Object.hasOwnProperty.call(data, "options")) {
       ViewToggleBtn.setCollapsedState(data.options.collapsed)
     }
 
