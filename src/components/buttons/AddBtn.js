@@ -3,7 +3,7 @@ var Utils = require("../../Utils")
 
 module.exports = {
     view: () => {
-        return m("button.btnAdd.button-transparent", {
+        return m("button[type=button].btnAdd.button-transparent", {
             title: "Add new property",
             onclick: (e) => {
                 e.preventDefault()

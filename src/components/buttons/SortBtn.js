@@ -3,7 +3,7 @@ var Utils = require("../../Utils")
 
 module.exports = {
     view: () => {
-        return m("button.btnSort.button-transparent", {
+        return m("button[type=button].btnSort.button-transparent", {
             disabled: Entry.all().length <= 1,
             title: "Sort by name",
             onclick: (e) => {

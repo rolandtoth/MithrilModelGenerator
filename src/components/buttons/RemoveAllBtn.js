@@ -3,7 +3,7 @@ var Utils = require("../../Utils")
 
 module.exports = {
     view: () => {
-        return m("button.btnRemoveAll.button-transparent", {
+        return m("button[type=button].btnRemoveAll.button-transparent", {
             title: "Remove all",
             disabled: Entry.isEmpty(),
             onclick: (e) => {

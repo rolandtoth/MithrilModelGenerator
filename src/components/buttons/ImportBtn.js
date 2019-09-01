@@ -3,7 +3,7 @@ var Entry = require("../../models/Entry")
 module.exports = {
     view: () => {
         return m(".import-wrap", [
-            m("button.bntImport", {
+            m("button[type=button].bntImport", {
                 onclick: () => {
                     document.getElementById("btnImportFileSelect").click()
                 }

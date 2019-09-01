@@ -9,7 +9,7 @@ module.exports = {
         this.collapsed = state
     },
     view: () => {
-        return m("button.btnViewToggle.button-transparent", {
+        return m("button[type=button].btnViewToggle.button-transparent", {
             title: "Toggle details",
             class: this.collapsed ? "active" : "",
             onclick: e => {

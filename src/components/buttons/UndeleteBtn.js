@@ -3,9 +3,9 @@ var Utils = require("../../Utils")
 
 module.exports = {
     view: vnode => {
-        return m("button.btnUndelete.button-transparent", {
+        return m("button[type=button].btnUndelete.button-transparent", {
             title: "Undelete",
-	        disabled: Entry.undeleteCount() === 0,
+            disabled: Entry.undeleteCount() === 0,
             onclick: e => {
                 e.preventDefault()
                 Entry.undelete()

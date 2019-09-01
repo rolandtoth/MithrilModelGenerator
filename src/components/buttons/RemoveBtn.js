@@ -5,8 +5,8 @@ module.exports = {
     view: vnode => {
         var id = vnode.attrs.id
 
-        return m("button.btnRemove.button-transparent", {
-	        title: "Remove",
+        return m("button[type=button].btnRemove.button-transparent", {
+            title: "Remove",
             onclick: e => {
                 e.preventDefault()
                 Entry.removeAt(id)
